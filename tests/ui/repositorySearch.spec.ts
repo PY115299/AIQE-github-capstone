@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { GitHubHomePage } from "../../src/pages/GitHubHomePage";
 import { SearchResultsPage } from "../../src/pages/SearchResultsPage";
+import { TestDataUtil } from "../../src/utils/TestDataUtil";
 import uiData from "../../testdata/uiData.json";
 
 test.describe("GitHub repository search", () => {
@@ -27,9 +28,13 @@ test.describe("GitHub repository search", () => {
   });
 
   test("should not display a nonexistent repository", async ({ page }) => {
-    const owner = uiData.negativeRepositorySearch.ownerPrefix;
+    const owner = TestDataUtil.generateNonexistentOwner(
+      uiData.negativeRepositorySearch.ownerPrefix,
+    );
 
-    const repository = `${uiData.negativeRepositorySearch.repositoryPrefix}-${Date.now()}`;
+    const repository = TestDataUtil.generateRepositoryName(
+      uiData.negativeRepositorySearch.repositoryPrefix,
+    );
 
     const searchText = `${owner}/${repository}`;
 

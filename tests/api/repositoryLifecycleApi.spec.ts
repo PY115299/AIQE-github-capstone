@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { environment } from "../../config/env";
 import { GitHubApiService } from "../../src/services/GitHubApiService";
+import { TestDataUtil } from "../../src/utils/TestDataUtil";
 import apiData from "../../testdata/apiData.json";
 
 test.describe("GitHub repository API lifecycle", () => {
@@ -26,7 +27,9 @@ test.describe("GitHub repository API lifecycle", () => {
       environment.githubApiBaseUrl,
     );
 
-    const repositoryName = `${lifecycleData.namePrefix}-${Date.now()}`;
+    const repositoryName = TestDataUtil.generateRepositoryName(
+      lifecycleData.namePrefix,
+    );
 
     let repositoryCreated = false;
 

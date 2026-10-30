@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { environment } from "../../config/env";
 import { RepositoryPage } from "../../src/pages/RepositoryPage";
 import { GitHubApiService } from "../../src/services/GitHubApiService";
+import { TestDataUtil } from "../../src/utils/TestDataUtil";
 import apiData from "../../testdata/apiData.json";
 import uiData from "../../testdata/uiData.json";
 
@@ -24,7 +25,9 @@ test.describe("GitHub integrated repository flow", () => {
 
     const integratedData = apiData.integratedRepository;
 
-    const repositoryName = `${integratedData.namePrefix}-${Date.now()}`;
+    const repositoryName = TestDataUtil.generateRepositoryName(
+      integratedData.namePrefix,
+    );
 
     const apiRequest = await playwright.request.newContext({
       baseURL: environment.githubApiBaseUrl,

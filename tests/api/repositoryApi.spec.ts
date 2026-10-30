@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { environment } from "../../config/env";
 import { GitHubApiService } from "../../src/services/GitHubApiService";
+import { TestDataUtil } from "../../src/utils/TestDataUtil";
 import apiData from "../../testdata/apiData.json";
 
 test.describe("GitHub public repository API", () => {
@@ -65,9 +66,13 @@ test.describe("GitHub public repository API", () => {
 
       const negativeData = apiData.nonexistentRepository;
 
-      const owner = negativeData.ownerPrefix;
+      const owner = TestDataUtil.generateNonexistentOwner(
+        negativeData.ownerPrefix,
+      );
 
-      const repository = `${negativeData.repositoryPrefix}-${Date.now()}`;
+      const repository = TestDataUtil.generateRepositoryName(
+        negativeData.repositoryPrefix,
+      );
 
       const response = await githubApi.getRepository(owner, repository);
 
