@@ -3,6 +3,7 @@ import { APIRequestContext, APIResponse } from "@playwright/test";
 export class GitHubApiService {
   constructor(
     private readonly request: APIRequestContext,
+
     private readonly apiBaseUrl: string,
   ) {}
 

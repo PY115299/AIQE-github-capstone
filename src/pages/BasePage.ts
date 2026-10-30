@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Page } from '@playwright/test';
 
 export abstract class BasePage {
   protected readonly page: Page;
@@ -7,9 +7,9 @@ export abstract class BasePage {
     this.page = page;
   }
 
-  async open(path = "/"): Promise<void> {
+  async open(path = '/'): Promise<void> {
     await this.page.goto(path, {
-      waitUntil: "domcontentloaded",
+      waitUntil: 'domcontentloaded'
     });
   }
 }

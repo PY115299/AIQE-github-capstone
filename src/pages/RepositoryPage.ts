@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+
 import { BasePage } from "./BasePage";
 
 export class RepositoryPage extends BasePage {
@@ -15,7 +16,11 @@ export class RepositoryPage extends BasePage {
   }
 
   privateBadge(): Locator {
-    return this.page.getByText("Private", { exact: true }).first();
+    return this.page
+      .getByText("Private", {
+        exact: true,
+      })
+      .first();
   }
 
   async navigateTo(owner: string, repository: string): Promise<void> {

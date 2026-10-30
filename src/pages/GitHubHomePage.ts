@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+
 import { BasePage } from "./BasePage";
 
 export class GitHubHomePage extends BasePage {
@@ -21,9 +22,9 @@ export class GitHubHomePage extends BasePage {
     await this.open("/");
   }
 
-  async searchFor(repository: string): Promise<void> {
+  async searchFor(searchText: string): Promise<void> {
     await this.searchButton.click();
-    await this.searchInput.fill(repository);
+    await this.searchInput.fill(searchText);
     await this.searchInput.press("Enter");
   }
 }

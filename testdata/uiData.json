@@ -1,0 +1,21 @@
+{
+  "homepage": {
+    "path": "/",
+    "expectedTitlePattern": "GitHub"
+  },
+  "publicRepository": {
+    "owner": "microsoft",
+    "name": "playwright",
+    "fullName": "microsoft/playwright",
+    "expectedPath": "/microsoft/playwright",
+    "expectedTitlePattern": "microsoft/playwright"
+  },
+  "negativeRepositorySearch": {
+    "ownerPrefix": "nonexistent-aiqe-owner",
+    "repositoryPrefix": "missing-repository"
+  },
+  "timeouts": {
+    "repositoryNavigationMs": 15000,
+    "newRepositoryVisibilityMs": 15000
+  }
+}

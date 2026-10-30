@@ -1,0 +1,36 @@
+{
+  "publicRepository": {
+    "owner": "microsoft",
+    "name": "playwright",
+    "fullName": "microsoft/playwright",
+    "isPrivate": false,
+    "expectedStatus": 200
+  },
+  "nonexistentRepository": {
+    "ownerPrefix": "nonexistent-aiqe-owner",
+    "repositoryPrefix": "missing-repository",
+    "expectedStatus": 404,
+    "expectedMessage": "Not Found"
+  },
+  "authenticatedUser": {
+    "expectedStatus": 200,
+    "expectedType": "User"
+  },
+  "repositoryLifecycle": {
+    "namePrefix": "aiqe-capstone",
+    "description": "Temporary repository created by an AIQE Playwright test",
+    "isPrivate": true,
+    "autoInitialize": true,
+    "createStatus": 201,
+    "retrieveStatus": 200,
+    "deleteStatus": 204
+  },
+  "integratedRepository": {
+    "namePrefix": "aiqe-integrated",
+    "description": "Temporary repository created by an integrated Playwright test",
+    "isPrivate": true,
+    "autoInitialize": true,
+    "createStatus": 201,
+    "deleteStatus": 204
+  }
+}

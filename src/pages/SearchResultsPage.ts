@@ -1,5 +1,7 @@
 import { Locator, Page } from "@playwright/test";
+
 import { BasePage } from "./BasePage";
+import uiData from "../../testdata/uiData.json";
 
 export class SearchResultsPage extends BasePage {
   constructor(page: Page) {
@@ -24,9 +26,11 @@ export class SearchResultsPage extends BasePage {
 
     await Promise.all([
       this.page.waitForURL(expectedUrl, {
-        timeout: 15_000,
+        timeout: uiData.timeouts.repositoryNavigationMs,
+
         waitUntil: "domcontentloaded",
       }),
+
       link.click(),
     ]);
   }
